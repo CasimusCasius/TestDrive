@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,18 @@ public class DriveController : MonoBehaviour
     [SerializeField] private float maxBrakeTorque = 500;
     [SerializeField] private float maxSpeed = 200;
 
-    [Header("only for orientatin view")]
+    [Header("only for orientation")]
     [Tooltip("this velocity is not in km/h")]
     [SerializeField] float currentSpeed;
+
+    private Vector3 lastPosition;
+    private float velocityScale = 10f;
+
+
+    private void Start()
+    {
+        lastPosition = transform.position;
+    }
 
     public void Drive(float acceleration, float brake, float steer)
     {
@@ -50,5 +60,14 @@ public class DriveController : MonoBehaviour
             wheel.GetWheelModel().transform.rotation = quat;
 
         }
+    }
+
+    private void FixedUpdate()
+    {
+        currentSpeed = Vector3.Distance(
+            Vector3.ProjectOnPlane(transform.position,Vector3.up),
+            Vector3.ProjectOnPlane(lastPosition, Vector3.up)) / Time.fixedDeltaTime * velocityScale;
+
+        lastPosition = transform.position;
     }
 }
