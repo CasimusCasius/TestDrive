@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
         if (!RaceController.isRacingStarted) { 
             acceleration = 0;
-            
+            brake = 1;
         }
 
         driveController.Drive(acceleration, brake, steer);

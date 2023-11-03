@@ -1,15 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceController : MonoBehaviour
 {
+    public Action<int> onTimerTick;
+    public Action onRaceStart;
+    public Action onRaceFinish;
+
     public static bool isRacingStarted = false;
     [SerializeField] private int timeToStart = 3;
     [SerializeField] private int totalLaps = 1;
-    [SerializeField] TextMeshProUGUI startText;
-    [SerializeField] private float startTextDisplayTime = 1f;
+    
     // TODO DŸwiêk odliczania
 
     private CarCheckpointController[] carsCheckpoints;
@@ -18,7 +23,7 @@ public class RaceController : MonoBehaviour
     private void Start()
     {
         //Debug.Log  ("------------------");
-        HideStartText();
+        
         InvokeRepeating(nameof(CountDown),3,1);
 
         GameObject[] cars = GameObject.FindGameObjectsWithTag(carTag);
@@ -38,33 +43,33 @@ public class RaceController : MonoBehaviour
 
             if (finishedLap == carsCheckpoints.Length && isRacingStarted) 
             {
-                Debug.Log("Race Finished");
+                //Debug.Log("Race Finished");
+                onRaceFinish?.Invoke();
                 isRacingStarted = false;
             }
         }
     }
 
+    public void RestartRace()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     private void CountDown()
     {
-        startText.gameObject.SetActive(true);
+       
         if (timeToStart != 0) 
         {
-            startText.text = timeToStart.ToString();
-            //Debug.Log("Rozpoczêcie wyœcigu za " + timeToStart);
+            onTimerTick?.Invoke(timeToStart);
             timeToStart--;
-
         }
         else
         {
-            startText.text = "START";
-            //Debug.Log("Start !!!");
             isRacingStarted = true;
+            onRaceStart?.Invoke();
             CancelInvoke(nameof(CountDown));
-            Invoke(nameof(HideStartText),startTextDisplayTime);
         }
     }
-    private void HideStartText()
-    {
-        startText.gameObject.SetActive(false);
-    }
+    
 }
