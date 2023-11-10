@@ -6,6 +6,7 @@ public class CarCheckpointController : MonoBehaviour
 {
     private int lap = 0;
     private int checkpoint = -1;
+    private GameObject lastCheckpoint;
     private int nextCheckpoint = 0;
     private int checkpointCount;
 
@@ -15,6 +16,14 @@ public class CarCheckpointController : MonoBehaviour
     {
         GameObject[] checkpoints = GameObject.FindGameObjectsWithTag(CHECKPOINT_TAG);
         checkpointCount = checkpoints.Length;
+        for (int i = 0; i < checkpointCount; i++)
+        {
+            if (checkpoints[i].name == "0")
+            {
+                lastCheckpoint = checkpoints[i];
+                break;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,20 +33,19 @@ public class CarCheckpointController : MonoBehaviour
             int thisCheckpoint = int.Parse(other.name);
             if (thisCheckpoint == nextCheckpoint)
             {
+                lastCheckpoint = other.gameObject;
                 checkpoint = thisCheckpoint;
                 if (thisCheckpoint == 0)
                 {
                     lap++;
-                    Debug.Log("Lap number" +  lap);
                 }
 
                 nextCheckpoint++;
                 nextCheckpoint %= checkpointCount;
-
-                Debug.Log("Next checkpoint :" +  nextCheckpoint);
             }
-
         }
     }
     public int GetLap() => lap;
+
+    public GameObject GetLastCheckpoint() => lastCheckpoint;
 }
