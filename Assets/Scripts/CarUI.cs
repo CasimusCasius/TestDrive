@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,9 +9,14 @@ public class CarUI : MonoBehaviour
     [SerializeField] private string playerName;
     [SerializeField] Color playerColor;
     [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] Renderer carRenderer; 
+    [SerializeField] Renderer carRenderer;
 
+    [SerializeField] private int playerNumber;
 
+    public void SetPlayerNumber(int i)
+    {
+        playerNumber = i;
+    }
 
     void Start()
     {
