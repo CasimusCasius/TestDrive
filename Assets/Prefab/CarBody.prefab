@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 511961081186834555}
   - component: {fileID: 6027338840181600109}
   - component: {fileID: 4067202025188625715}
+  - component: {fileID: 528483665360691634}
   m_Layer: 0
   m_Name: CarBody
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +123,19 @@ MonoBehaviour:
   rearWheels:
   - {fileID: 7096457440515070827}
   - {fileID: 5155206126775729675}
+--- !u!114 &528483665360691634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107811402894014179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcafbf74ee706b441988734cada7329a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointCount: 0
 --- !u!1 &1748541293035622125
 GameObject:
   m_ObjectHideFlags: 0

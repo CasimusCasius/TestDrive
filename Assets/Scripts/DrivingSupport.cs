@@ -70,8 +70,6 @@ public class DriveSupport : MonoBehaviour
                 suspentionForceFactor[wheel.GetSide()] =
                     (-wheelCollider.transform.InverseTransformPoint(hit.point).y -
                     wheelCollider.radius) / wheelCollider.suspensionDistance;
-                Debug.Log(-wheelCollider.transform.InverseTransformPoint(hit.point).y -
-                        wheelCollider.radius);
             }
             else
                 suspentionForceFactor[wheel.GetSide()] = 1.0f;
