@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 291685856}
   - component: {fileID: 291685857}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: GreenSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 822511881}
   - component: {fileID: 822511882}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: BlueSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2098,7 +2098,7 @@ GameObject:
   - component: {fileID: 1038337054}
   - component: {fileID: 1038337055}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: RedSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3106,6 +3106,58 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1703363996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1703363997}
+  - component: {fileID: 1703363998}
+  m_Layer: 0
+  m_Name: MenuController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703363997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703363996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1602.5616, y: 529.5415, z: -12.158828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1703363998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703363996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990a3f3d034275346919efa851ddfd3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carModel: {fileID: 6536992034882036080}
+  redSlider: {fileID: 1038337055}
+  greenSlider: {fileID: 291685857}
+  blueSlider: {fileID: 822511882}
+  redValue: {fileID: 423893445}
+  greenValue: {fileID: 1035666402}
+  blueValue: {fileID: 1740895699}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1740895697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3809,7 +3861,7 @@ WheelCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_ProvidesContacts: 0
 --- !u!224 &207137875060422535
 RectTransform:
@@ -4569,7 +4621,7 @@ WheelCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_ProvidesContacts: 0
 --- !u!146 &5950801741109999580
 WheelCollider:
@@ -4608,7 +4660,7 @@ WheelCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_ProvidesContacts: 0
 --- !u!4 &6189869801555808699
 Transform:
@@ -5033,7 +5085,7 @@ WheelCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_ProvidesContacts: 0
 --- !u!33 &8970336970774425527
 MeshFilter:
@@ -5143,3 +5195,4 @@ SceneRoots:
   - {fileID: 345351949}
   - {fileID: 35560982}
   - {fileID: 288099169}
+  - {fileID: 1703363997}

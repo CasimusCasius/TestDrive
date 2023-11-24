@@ -27,11 +27,7 @@ public class RaceController : MonoBehaviour
         //Debug.Log  ("------------------");
         
         InvokeRepeating(nameof(CountDown),3,1);
-        for (int i = 0; i < playersCount; i++)
-        {
-            GameObject car = Instantiate(carPrefab,
-                SpawnPositions[i].position,
-                SpawnPositions[i].rotation);
+    
 
         for (int i = 0; i < playersCount; i++)
         {

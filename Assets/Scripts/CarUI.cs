@@ -7,12 +7,12 @@ using UnityEngine;
 public class CarUI : MonoBehaviour
 {
     [SerializeField] private string playerName;
-    [SerializeField] Color playerColor;
-    [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] Renderer carRenderer;
-    [SerializeField] int playerNumber; // Serializacja do testów
+    [SerializeField] private Color playerColor;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private Renderer carRenderer;
+    [SerializeField] private int playerNumber; // Serializacja do testów
 
-    [SerializeField] private int playerNumber;
+    
 
     void Start()
     {
