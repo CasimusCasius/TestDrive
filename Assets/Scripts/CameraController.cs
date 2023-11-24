@@ -37,12 +37,10 @@ public class CameraController : MonoBehaviour
 
     public void SetCameraProperties(DriveController car)
     {
-        if (car == null) { return; }
+        if (car == null) {  return; }
 
         vCam.Follow = car.transform;
         vCam.LookAt = car.transform;
     }
-
-
 
 }

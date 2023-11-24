@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a16a12bc06c32cc40b96239cf42b3566
+=======
+guid: 75dc85bf0b0758a44bc0d72095016e3d
+>>>>>>> Test
 AssemblyDefinitionImporter:
   externalObjects: {}
   userData: 

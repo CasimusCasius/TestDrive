@@ -10,20 +10,21 @@ public class CarUI : MonoBehaviour
     [SerializeField] Color playerColor;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] Renderer carRenderer;
+    [SerializeField] int playerNumber; // Serializacja do testów
 
     [SerializeField] private int playerNumber;
-
-    public void SetPlayerNumber(int i)
-    {
-        playerNumber = i;
-    }
 
     void Start()
     {
         nameText.text = playerName;
         nameText.color = playerColor;
-        carRenderer.material.color = playerColor ;
-        
+        carRenderer.material.color = playerColor ;   
+    }
+
+    public int GetPlayerNumber() => playerNumber;
+
+    public void SetPlayerNumber(int number)
+    { playerNumber = number; 
     }
 
 }

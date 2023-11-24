@@ -15,9 +15,8 @@ public class RaceController : MonoBehaviour
     [SerializeField] private int timeToStart = 3;
     [SerializeField] private int totalLaps = 1;
     [SerializeField] private GameObject carPrefab;
-    [SerializeField] private Transform[] SpawnPositions;
-    [SerializeField] private int playersCount = 1;
-    
+    [SerializeField] private Transform[] spawnPositions;
+    [SerializeField] private int playersCount = 1; // serialize tylko do testów
     // TODO DŸwiêk odliczania
 
     private CarCheckpointController[] carsCheckpoints;
@@ -34,19 +33,25 @@ public class RaceController : MonoBehaviour
                 SpawnPositions[i].position,
                 SpawnPositions[i].rotation);
 
+        for (int i = 0; i < playersCount; i++)
+        {
+            GameObject car = Instantiate(carPrefab, spawnPositions[i].position,
+                spawnPositions[i].rotation);
             car.GetComponent<CarUI>().SetPlayerNumber(i);
-
-            if (i == 0)
+            if(i == 0)
             {
                 car.GetComponent<PlayerController>().enabled = true;
-                GameObject.FindObjectOfType<CameraController>().SetCameraProperties(
-                    car.GetComponent<DriveController>());
+                GameObject.FindObjectOfType<CameraController>().
+                    SetCameraProperties(car.GetComponent<DriveController>());
             }
             else
             {
                 car.GetComponent<PlayerController>().enabled = false;
             }
+
         }
+
+
         GameObject[] cars = GameObject.FindGameObjectsWithTag(carTag);
         carsCheckpoints = new CarCheckpointController[cars.Length];
         for (int i = 0; i < cars.Length; i++)
