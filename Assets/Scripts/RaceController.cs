@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RaceController : MonoBehaviour
 {
+    public Action<int> onTimeTick;
+    public Action onRaceStart;
+    public Action onRaceFinish;
+
     public static bool isRacing = false;
 
     [SerializeField] private int timeToStart = 3;
@@ -44,17 +49,19 @@ public class RaceController : MonoBehaviour
             }
         }
     }
-
+    
     private void CountDown()
     {
         if (timeToStart != 0)
         {
             Debug.Log("Rozpoczêcie wyœcigu za: " + timeToStart);
+            onTimeTick.Invoke(timeToStart);
             timeToStart--;
         }
         else
         {
             Debug.Log("Start!!!");
+            onRaceStart.Invoke();
             isRacing = true;
             CancelInvoke(nameof(CountDown));
         }
