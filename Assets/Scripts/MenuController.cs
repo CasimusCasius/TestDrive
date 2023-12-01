@@ -11,15 +11,21 @@ public class MenuController : MonoBehaviour
     [SerializeField] TextMeshProUGUI redValue, greenValue, blueValue;
     [SerializeField] Color color;
 
+    public const string RED_VALUE = "Red";
+    public const string GREEN_VALUE = "Green";
+    public const string BLUE_VALUE = "Blue";
+
+
+
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Red") && PlayerPrefs.HasKey("Green") &&
-            PlayerPrefs.HasKey("Blue"))
+        if (PlayerPrefs.HasKey(RED_VALUE) && PlayerPrefs.HasKey(GREEN_VALUE) &&
+            PlayerPrefs.HasKey(BLUE_VALUE))
         {
             color = IntToColor(
-                PlayerPrefs.GetInt("Red"),
-                PlayerPrefs.GetInt("Green"),
-                PlayerPrefs.GetInt("Blue"));
+                PlayerPrefs.GetInt(RED_VALUE),
+                PlayerPrefs.GetInt(GREEN_VALUE),
+                PlayerPrefs.GetInt(BLUE_VALUE));
         }
 
         carModel.material.color = color;
@@ -53,9 +59,9 @@ public class MenuController : MonoBehaviour
         Color carColor = IntToColor(red, green, blue);
         carModel.material.color = carColor;
 
-        PlayerPrefs.SetInt("Red", red);
-        PlayerPrefs.SetInt("Green", green);
-        PlayerPrefs.SetInt("Blue", blue);
+        PlayerPrefs.SetInt(RED_VALUE, red);
+        PlayerPrefs.SetInt(GREEN_VALUE, green);
+        PlayerPrefs.SetInt(BLUE_VALUE, blue);
 
         
     }

@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,6 +16,24 @@ public class CarUI : MonoBehaviour
 
     void Start()
     {
+        if (playerNumber == 0)
+        {
+            playerName = PlayerPrefs.GetString(RaceLauncher.PLAYER_NAME_KEY);
+            playerColor = MenuController.IntToColor(
+                PlayerPrefs.GetInt(MenuController.RED_VALUE),
+                PlayerPrefs.GetInt(MenuController.GREEN_VALUE),
+                PlayerPrefs.GetInt(MenuController.BLUE_VALUE)
+                );
+        }
+        else
+        {
+            playerName = "Random" + playerNumber;
+            playerColor = new Color(
+                Random.Range(0f,1f),
+                Random.Range(0f, 1f),
+                Random.Range(0f, 1f));
+        }
+
         nameText.text = playerName;
         nameText.color = playerColor;
         carRenderer.material.color = playerColor ;   

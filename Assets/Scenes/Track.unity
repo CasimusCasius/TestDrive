@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: a163ae12708f69645947f7c47727d04a, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 9ea83077917262c409404cdeada9eaa0, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -123,41 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &16540795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 16540796}
-  m_Layer: 0
-  m_Name: SpawnPoints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &16540796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16540795}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 446914956}
-  - {fileID: 2032078192}
-  - {fileID: 1680826395}
-  - {fileID: 347400929}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96082091
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +380,7 @@ MonoBehaviour:
   spawnPositions:
   - {fileID: 1590902687}
   - {fileID: 1818513225}
-  - {fileID: 435021404}
+  - {fileID: 1680826395}
   - {fileID: 1523109534}
   playersCount: 3
 --- !u!4 &216005266
@@ -2076,7 +2041,7 @@ Transform:
   - {fileID: 1590902687}
   - {fileID: 1818513225}
   - {fileID: 1523109534}
-  - {fileID: 435021404}
+  - {fileID: 1680826395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864099216 stripped
@@ -5980,7 +5945,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 16540796}
+  m_Father: {fileID: 806483333}
   m_LocalEulerAnglesHint: {x: 0, y: 56.414, z: 0}
 --- !u!1 &1741862242
 GameObject:
@@ -6328,37 +6293,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861897481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2032078191
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2032078192}
-  m_Layer: 0
-  m_Name: SpawnPosition (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2032078192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032078191}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.47266135, z: -0, w: 0.88124424}
-  m_LocalPosition: {x: 31.69, y: 1.74, z: -56.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 16540796}
-  m_LocalEulerAnglesHint: {x: 0, y: 56.414, z: 0}
 --- !u!1 &2034451718
 GameObject:
   m_ObjectHideFlags: 0
@@ -6921,6 +6855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 513568472}
     m_Modifications:
+    - target: {fileID: 682667215273249150, guid: 9e100fee17709744fb4c0e76f4377de0, type: 3}
+      propertyPath: m_text
+      value: Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 861693423822577862, guid: 9e100fee17709744fb4c0e76f4377de0, type: 3}
       propertyPath: m_Name
       value: FinishScreen
@@ -6933,6 +6871,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 216005265}
+    - target: {fileID: 3841925486934895309, guid: 9e100fee17709744fb4c0e76f4377de0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 216005265}
+    - target: {fileID: 3841925486934895309, guid: 9e100fee17709744fb4c0e76f4377de0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8612451760204659359, guid: 9e100fee17709744fb4c0e76f4377de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

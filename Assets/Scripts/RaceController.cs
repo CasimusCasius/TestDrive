@@ -77,6 +77,10 @@ public class RaceController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
 
     private void CountDown()
     {
