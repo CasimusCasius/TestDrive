@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class RaceController : MonoBehaviour
 
     [SerializeField] private int timeToStart = 3;
     [SerializeField] private int totalLaps = 1;
+    
     private const string CAR_TAG = "Car";
     private CheckpointController[] carsController;
 
@@ -21,7 +23,7 @@ public class RaceController : MonoBehaviour
     {
         float startDelay = 3f;
 
-        Debug.Log("------------------");
+        // Debug.Log("------------------");
         InvokeRepeating(nameof(CountDown), startDelay, 1);
 
         GameObject[] cars = GameObject.FindGameObjectsWithTag(CAR_TAG);
@@ -45,6 +47,7 @@ public class RaceController : MonoBehaviour
             if (howManyCarsFinishedRace == carsController.Length && isRacing)
             {
                 Debug.Log("Finish Race!!");
+                onRaceFinish.Invoke();
                 isRacing = false;
             }
         }
@@ -66,4 +69,11 @@ public class RaceController : MonoBehaviour
             CancelInvoke(nameof(CountDown));
         }
     }
+
+    public void RestartLevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene);
+    }
+
 }

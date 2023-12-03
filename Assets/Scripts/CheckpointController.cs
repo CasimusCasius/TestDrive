@@ -10,11 +10,21 @@ public class CheckpointController : MonoBehaviour
     private const string CHECKPOINT_TAG = "Checkpoint";
     private int nextCheckpoint;
     private int lapCounter = 0;
+    private GameObject lastCheckpoint;
 
     private void Start()
     {
         GameObject[] checkpoints = GameObject.FindGameObjectsWithTag(CHECKPOINT_TAG);
         checkpointCount = checkpoints.Length;
+
+        for (int i = 0; i < checkpointCount; i++)
+        {
+            if (checkpoints[i].name == "0")
+            {
+                lastCheckpoint = checkpoints[i];
+                break;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,14 +41,12 @@ public class CheckpointController : MonoBehaviour
                 }
                 nextCheckpoint++;
                 nextCheckpoint %= checkpointCount;
-
+                lastCheckpoint = other.gameObject;
             }
         }
     }
 
     public int GetLap() => lapCounter;
-    //{
-    //    return lapCounter;
-    //}
+    public GameObject GetLastCheckpoint() => lastCheckpoint;
 
 }
