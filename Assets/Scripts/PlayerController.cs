@@ -26,22 +26,7 @@ public class PlayerController : MonoBehaviour
         float steer = Input.GetAxis("Horizontal");
         float brake = Input.GetAxis("Jump");
 
-        if (rb.velocity.magnitude > 1 || !RaceController.isRacing)
-        {
-            lastTimeMoving = Time.time;
-        }
-        
-        if (Time.time > lastTimeMoving + maxNotMovingTime ||
-            gameObject.transform.position.y < deathHightValue) 
-        { 
-            transform.position =
-                checkpointController.GetLastCheckpoint().transform.position;
-            transform.rotation  = 
-                checkpointController.GetLastCheckpoint().transform.rotation;
-
-            gameObject.layer = 6;
-            Invoke(nameof(ResetLayer), invincibleTime);
-        }
+        StuckCheck();
 
         if (!RaceController.isRacing)
         {
@@ -50,6 +35,26 @@ public class PlayerController : MonoBehaviour
         }
 
         driveController.Drive(acceleration, brake, steer);
+    }
+
+    private void StuckCheck()
+    {
+        if (rb.velocity.magnitude > 1 || !RaceController.isRacing)
+        {
+            lastTimeMoving = Time.time;
+        }
+
+        if (Time.time > lastTimeMoving + maxNotMovingTime ||
+            gameObject.transform.position.y < deathHightValue)
+        {
+            transform.position =
+                checkpointController.GetLastCheckpoint().transform.position;
+            transform.rotation =
+                checkpointController.GetLastCheckpoint().transform.rotation;
+
+            gameObject.layer = 6;
+            Invoke(nameof(ResetLayer), invincibleTime);
+        }
     }
 
     private void ResetLayer()

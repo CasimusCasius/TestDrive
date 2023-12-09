@@ -10,12 +10,18 @@ public class CarApperance : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textField;
     [SerializeField] private Renderer carModel;
 
+    [SerializeField] private int playerNumber;
     
     private void Start()
     {
         textField.text = playerName;
         carModel.material.color = carColor;
         textField.color = carColor;
+    }
+
+    public void SetPlayerNumber(int playerNumber)
+    {
+        this.playerNumber = playerNumber;
     }
 
 }
