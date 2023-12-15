@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -10,16 +11,23 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI startText;
     [SerializeField] private float startTextDisplayTime = 1f;
     [SerializeField] private GameObject finishScreen;
-
+    [SerializeField] private TextMeshProUGUI waitText;
+    [SerializeField] private Button startRace;
 
 
     private void Start()
     {
+        raceController.onStartUpdate += UIUpdate;
         raceController.onTimerTick += Ticking;
         raceController.onRaceStart += ShowStartUI;
         raceController.onRaceFinish += ShowFinishUI;
         HideStartText();
+    }
 
+    private void UIUpdate(bool isMaster)
+    {
+        startRace.gameObject.SetActive(isMaster);
+        waitText.gameObject.SetActive(!isMaster);
     }
 
     private void ShowFinishUI()
@@ -36,6 +44,8 @@ public class UIController : MonoBehaviour
     private void Ticking(int timeToStart)
     {
         ShowHideStartText(true);
+        startRace.gameObject.SetActive(false);
+        waitText.gameObject.SetActive(false);
         startText.text = timeToStart.ToString();
     }
 

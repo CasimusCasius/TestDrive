@@ -277,6 +277,8 @@ MonoBehaviour:
   startText: {fileID: 1089226026}
   startTextDisplayTime: 1
   finishScreen: {fileID: 864099216}
+  waitText: {fileID: 0}
+  startRace: {fileID: 0}
 --- !u!1 &179348269
 GameObject:
   m_ObjectHideFlags: 0
@@ -6648,7 +6650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Wait ....
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
