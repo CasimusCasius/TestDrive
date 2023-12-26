@@ -40,10 +40,19 @@ public class RaceController : MonoBehaviourPunCallbacks
             startPos = spawnPositions[PhotonNetwork.CurrentRoom.PlayerCount - 1].position;
             startRot = spawnPositions[PhotonNetwork.CurrentRoom.PlayerCount - 1].rotation;
 
+            object[] instanceData = new object[4];
+            instanceData[0] = PlayerPrefs.GetString(RaceLauncher.PLAYER_NAME_KEY);
+            instanceData[1] = PlayerPrefs.GetInt(MenuController.RED_VALUE);
+            instanceData[2] = PlayerPrefs.GetInt(MenuController.GREEN_VALUE);
+            instanceData[3] = PlayerPrefs.GetInt(MenuController.BLUE_VALUE);
+
             if (OnlinePlayer.LocalPlayerInstance == null)
             {
-                playerCar = PhotonNetwork.Instantiate(carPrefab.name, startPos, startRot);
+                playerCar = PhotonNetwork.Instantiate(carPrefab.name, startPos, startRot,
+                    0,instanceData);
+                playerCar.GetComponent<CarUI>().SetLocalPlayer();
             }
+            Debug.Log(PhotonNetwork.IsMasterClient);
 
             onStartUpdate?.Invoke(PhotonNetwork.IsMasterClient);
 
@@ -75,7 +84,7 @@ public class RaceController : MonoBehaviourPunCallbacks
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     [PunRPC]

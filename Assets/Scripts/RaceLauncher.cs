@@ -31,7 +31,7 @@ public class RaceLauncher : MonoBehaviourPunCallbacks
 
     public void StartTrial()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public override void OnConnectedToMaster()
@@ -61,7 +61,7 @@ public class RaceLauncher : MonoBehaviourPunCallbacks
     {
         networkText.text = "Joined room with " + PhotonNetwork.CurrentRoom.PlayerCount +
             "players.\n";
-        PhotonNetwork.LoadLevel(0);
+        PhotonNetwork.LoadLevel(1);
     }
 
     public void ConnectNetwork()

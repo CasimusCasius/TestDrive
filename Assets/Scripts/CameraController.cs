@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
             camPosition[activeCamera];
     }
 
-    public void SetCameraProperties(DriveController car)
+    public void SetCameraProperties(Transform car)
     {
         if (car == null) {  return; }
 

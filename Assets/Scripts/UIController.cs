@@ -26,6 +26,7 @@ public class UIController : MonoBehaviour
 
     private void UIUpdate(bool isMaster)
     {
+        Debug.Log(isMaster);
         startRace.gameObject.SetActive(isMaster);
         waitText.gameObject.SetActive(!isMaster);
     }

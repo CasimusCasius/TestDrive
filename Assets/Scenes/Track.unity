@@ -277,8 +277,8 @@ MonoBehaviour:
   startText: {fileID: 1089226026}
   startTextDisplayTime: 1
   finishScreen: {fileID: 864099216}
-  waitText: {fileID: 0}
-  startRace: {fileID: 0}
+  waitText: {fileID: 1898969573}
+  startRace: {fileID: 330958954}
 --- !u!1 &179348269
 GameObject:
   m_ObjectHideFlags: 0
