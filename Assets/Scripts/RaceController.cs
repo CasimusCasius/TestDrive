@@ -46,6 +46,7 @@ public class RaceController : MonoBehaviourPunCallbacks
             instanceData[2] = PlayerPrefs.GetInt(MenuController.GREEN_VALUE);
             instanceData[3] = PlayerPrefs.GetInt(MenuController.BLUE_VALUE);
 
+            Debug.Log(OnlinePlayer.LocalPlayerInstance);
             if (OnlinePlayer.LocalPlayerInstance == null)
             {
                 playerCar = PhotonNetwork.Instantiate(carPrefab.name, startPos, startRot,
@@ -59,12 +60,12 @@ public class RaceController : MonoBehaviourPunCallbacks
             playerCar.GetComponent<DriveController>().enabled = true;
             playerCar.GetComponent<PlayerController>().enabled = true;
         }
-
-
     }
+
     private void LateUpdate()
     {
         int finishedLap = 0;
+        if (carsCheckpoints == null) return;
         foreach (var carCheckpoint in carsCheckpoints)
         {
             if (carCheckpoint.GetLap() == totalLaps + 1) finishedLap++;
@@ -90,12 +91,9 @@ public class RaceController : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartGame()
     {
-        InvokeRepeating(nameof(CountDown), 3, 1);
-
-        
-
         GameObject[] cars = GameObject.FindGameObjectsWithTag(carTag);
         carsCheckpoints = new CarCheckpointController[cars.Length];
+        InvokeRepeating(nameof(CountDown), 3, 1);
         for (int i = 0; i < cars.Length; i++)
         {
             carsCheckpoints[i] = cars[i].GetComponent<CarCheckpointController>();

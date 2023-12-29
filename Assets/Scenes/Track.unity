@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToStart: 3
   totalLaps: 1
-  carPrefab: {fileID: 2081086726969337560, guid: d03d768c037d7a549a869825e34348f4, type: 3}
+  carPrefab: {fileID: 6709161719259909587, guid: 751e5a8767a58bf4ab0490c1204950c8, type: 3}
   spawnPositions:
   - {fileID: 1590902687}
   - {fileID: 1818513225}
@@ -733,7 +733,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 330958955}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 216005265}
+        m_TargetAssemblyTypeName: RaceController, Assembly-CSharp
+        m_MethodName: BeginGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &330958955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7393,83 +7405,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e100fee17709744fb4c0e76f4377de0, type: 3}
---- !u!1001 &4708369009293084616
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 335998760898528000, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 437177659561054386, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 445057393782981725, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: sceneViewId
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 27.83342
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.59314835
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -57.195038
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9163672
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.40033886
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 47.199
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139828352380577550, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083865951243020437, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6709161719259909587, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: m_Name
-      value: CarBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 8446680905089083479, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
-      propertyPath: sceneViewId
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4425493b9406900458ff8ee475ee877a, type: 3}
 --- !u!4 &6360032274222550503
 Transform:
   m_ObjectHideFlags: 0
@@ -7528,4 +7463,3 @@ SceneRoots:
   - {fileID: 134651948}
   - {fileID: 806483333}
   - {fileID: 6360032274222550503}
-  - {fileID: 4708369009293084616}
