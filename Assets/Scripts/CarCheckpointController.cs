@@ -55,4 +55,6 @@ public class CarCheckpointController : MonoBehaviour
     public int GetLap() => lap;
 
     public GameObject GetLastCheckpoint() => lastCheckpoint;
+
+    public int GetCheckpoint() => checkpoint;
 }

@@ -7,10 +7,16 @@ public class DriveSupport : MonoBehaviour
 {
     private Rigidbody bodyCar;
     private float lastTimeChecked;
+    [Header("Nitro")]
+    [SerializeField] private float nitroFuel = 3f;
+    [SerializeField] private float maxNitroFuel = 5;
+    [SerializeField] private float boostPower = 100000f;
+    [SerializeField] private GameObject nitroLights;
+    [Header("Drive Control")]
     [SerializeField] float antiRoll = 5000;
     [SerializeField] WheelScript[] frontWheels;
     [SerializeField] WheelScript[] rearWheels;
-
+    
     private void Awake()
     {
         bodyCar = GetComponent<Rigidbody>();
@@ -27,6 +33,26 @@ public class DriveSupport : MonoBehaviour
     {
         HoldWheelOnGround(frontWheels);
         HoldWheelOnGround(rearWheels);
+    }
+
+    private void Boost(float boostPower)
+    {
+        bodyCar.AddForce(bodyCar.transform.forward * boostPower);
+    }
+
+    public void Nitro(bool isOn)
+    {
+        if (nitroFuel > 0 && isOn) 
+        {
+            Boost(boostPower);
+            nitroFuel --;
+            nitroFuel = Mathf.Clamp(nitroFuel, 0, maxNitroFuel);
+            nitroLights.SetActive(true);
+        }
+        else
+        {
+            nitroLights.SetActive(false);
+        }
     }
 
     private void TurnBackCar()

@@ -12,16 +12,25 @@ public class DriveController : MonoBehaviour
     [SerializeField] private float maxBrakeTorque = 500;
     [SerializeField] private float maxSpeed = 200;
 
+
     [Header("only for orientation")]
     [Tooltip("this velocity is not in km/h")]
     [SerializeField] float currentSpeed;
-
+    
     private Vector3 lastPosition;
     private float velocityScale = 10f;
 
 
     private void Start()
     {
+        lastPosition = transform.position;
+    }
+    private void FixedUpdate()
+    {
+        currentSpeed = Vector3.Distance(
+            Vector3.ProjectOnPlane(transform.position, Vector3.up),
+            Vector3.ProjectOnPlane(lastPosition, Vector3.up)) / Time.fixedDeltaTime * velocityScale;
+
         lastPosition = transform.position;
     }
 
@@ -62,12 +71,5 @@ public class DriveController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        currentSpeed = Vector3.Distance(
-            Vector3.ProjectOnPlane(transform.position,Vector3.up),
-            Vector3.ProjectOnPlane(lastPosition, Vector3.up)) / Time.fixedDeltaTime * velocityScale;
-
-        lastPosition = transform.position;
-    }
+    
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private DriveController driveController;
+    private DriveSupport driveSupport;
     private CarCheckpointController carCheckpointController;
     private Rigidbody rb;
 
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
         driveController = GetComponent<DriveController>();
         carCheckpointController = GetComponent<CarCheckpointController>();
         rb = GetComponent<Rigidbody>();
+        driveSupport = GetComponent<DriveSupport>();
     }
 
 
@@ -29,6 +31,16 @@ public class PlayerController : MonoBehaviour
         float acceleration = Input.GetAxis("Vertical");
         float steer = Input.GetAxis("Horizontal");
         float brake = Input.GetAxis("Jump");
+        bool nitro;
+        if (Input.GetAxis("Fire1") != 0)
+        {
+            nitro = true;
+        }
+        else
+        {
+            nitro = false;
+        }
+
 
         if (rb == null) { return; }
 
@@ -49,6 +61,7 @@ public class PlayerController : MonoBehaviour
         }
 
         driveController.Drive(acceleration, brake, steer);
+        driveSupport.Nitro(nitro);
     }
 
     private void RelocateCar()
