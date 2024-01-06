@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public const string PLAYER_NAME_KEY = "PlayerName";
     private const int deathHightValue = -5;
     private const int invincibleTime = 3;
     [SerializeField] float maxNotMovingTime = 2f;
